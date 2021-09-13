@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif !important;
+  color: #000;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  overflow-wrap: break-word !important;
+}
+
+/* main,
+div,
+h1 {
+  border: 1px solid red;
+} */
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#containerSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5rem;
+}
+
+#containerBackground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 550px;
+  padding: 0 4rem;
+
+  background-image: linear-gradient(to top right, #ada7ff, #bbadff, #cbb2fe);
+  border-radius: 0 0 3.75rem 3.75rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+#titleSearchBook {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+
+  width: 400px;
+  margin-bottom: 2rem;
+
+  color: #6247aa;
+  padding: 0 3rem;
+}
+
+#containerSearchBook {
+  width: 400px;
+}
+
+#containerSearchForm {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#searchInput {
+  width: 100%;
+  height: 50px;
+  padding: 1rem;
+  outline: none;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 1rem 0 0 1rem;
+}
+
+#searchInput::placeholder {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000;
+}
+
+#searchInput:focus {
+  box-shadow: rgba(98, 71, 170, 0.16) 0px 3px 6px,
+    rgba(98, 71, 170, 0.23) 0px 3px 6px;
+}
+
+#searchBtn {
+  width: 100px;
+  height: 50px;
+
+  font-size: 0.9rem;
+  font-weight: 100 !important;
+  color: #fff;
+
+  background-color: #6247aa;
+  outline: none;
+  border: none;
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
+}
+
+@keyframes changeHeight {
+  0% {
+    height: 550px;
+  }
+  100% {
+    height: 146px;
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+  }
+}
+
+.changeHeightBackground {
+  animation: changeHeight 1s ease-in-out forwards;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem 0;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerTitleAndAuthor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.titleBook,
+.authorBook {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.titleBook {
+  font-weight: 700;
+  height: 50px;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  padding: 0.5rem 1rem 0;
+}
+
+.authorBook {
+  margin: 0.5rem 1rem 0;
+  padding-top: 0.5rem;
+  border-top: 0.1rem solid #e9ecef;
+  color: #8c8c8c;
+  font-weight: 600;
+}
+
+/* The Modal (background) */
+.modal,
+.modalLoading {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-image: linear-gradient(rgb(248, 247, 255) 10%, rgb(255, 255, 255));
+  margin: 4% auto; /* 15% from the top and centered */
+  overflow-y: hidden;
+  padding: 30px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 1rem;
+}
+
+.modal-content-loading {
+  background-image: linear-gradient(rgb(248, 247, 255) 10%, rgb(255, 255, 255));
+  margin: 20% auto; /* 15% from the top and centered */
+  overflow-y: hidden;
+  padding: 15px;
+  width: 200px; /* Could be more or less, depending on screen size */
+  border-radius: 0.2rem;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.containerImgAndBtn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.containerImgAndBtn div {
+  width: 70%;
+}
+
+.titleModal {
+  width: 100% !important;
+}
+
+.titleModal h2 {
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.urlBook {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  margin-top: 0.7rem;
+  background-color: #039be5;
+  border-radius: 0.4rem;
+}
+
+.containerModalImg {
+  padding-right: 2rem;
+}
+
+.containerAboutAuthor strong,
+.containerPriceAndPages strong,
+.containerDescripcion strong {
+  text-transform: uppercase;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 676px) {
+  #containerSearch {
+    margin: 0 3rem;
+  }
+
+  #containerBackground {
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #titleSearchBook,
+  #containerSearchBook {
+    width: 300px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #containerSearch {
+    margin: 0;
+  }
+
+  #containerBackground {
+    padding: 0 2rem;
+  }
+
+  #titleSearchBook,
+  #containerSearchBook {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 281px) {
+  #containerBackground {
+    padding: 0 0.5rem;
+  }
+}

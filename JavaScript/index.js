@@ -33,8 +33,6 @@ document.querySelector('form').onsubmit = async function(e) {
 
     closeModal();
     
-    
-        
     // window.setInterval(() => {
     //     console.log("Hola felipe!");
     // }, 2000);
